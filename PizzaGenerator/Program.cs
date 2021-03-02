@@ -34,6 +34,7 @@ namespace PizzaGenerator
             pizza.Add(toppings[randomTopping]);
             pizza.Add(toppings[randomTopping2]); 
 
+            int totalPrice = 0;
             //This foreach loop accounts for the fact that the price per topping for the Sicilian Half Sheet size is different from the price per topping for all other sizes supported
             //It works by setting the price for all ingredients to the per topping price of 4, and then it resets the pizza base price to 15
             foreach (var ingredient in pizza)
@@ -48,12 +49,19 @@ namespace PizzaGenerator
                 }
             }
 
-            List<IIngredient> order = new List<IIngredient>();
-
-            foreach (var item in pizza)
+            foreach (var ingredient in pizza)
             {
-                order.Add(item);
+                Console.WriteLine(ingredient.Name);
+                //Console.WriteLine(ingredient.Price);
+                totalPrice += ingredient.Price;
             }
+
+            //List<IIngredient> order = new List<IIngredient>();
+
+            //foreach (var item in pizza)
+            //{
+            //    order.Add(item);
+            //}
 
             List<IIngredient> pizza2 = new List<IIngredient>();
             pizza2.Add(crusts[3]);
@@ -72,14 +80,13 @@ namespace PizzaGenerator
                 }
             }
 
-            foreach (var item in pizza2)
-            {
-                order.Add(item);
-            }
+            //foreach (var item in pizza2)
+            //{
+            //    order.Add(item);
+            //}
 
             //This foreach loop displays which ingredients have been randomly selected and adds the price together
-            int totalPrice = 0;
-            foreach (var ingredient in order)
+            foreach (var ingredient in pizza2)
             {
                 Console.WriteLine(ingredient.Name);
                 //Console.WriteLine(ingredient.Price);
